@@ -17,3 +17,5 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
+board: [adafruit_kb2040]
+shield: ["heartstopper_left", "heartstopper_right"]

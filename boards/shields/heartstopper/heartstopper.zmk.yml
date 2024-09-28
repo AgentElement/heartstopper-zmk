@@ -1,0 +1,12 @@
+file_format: "1"
+id: heartstopper
+name: Heartstopper
+type: shield
+url: https://github.com/AgentElement/heartstopper/
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - heartstopper_left
+  - heartstopper_right

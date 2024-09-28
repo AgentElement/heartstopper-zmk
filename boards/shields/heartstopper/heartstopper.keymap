@@ -1,0 +1,46 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        alpha_layer {
+            bindings = <
+    &kp Q    &kp W    &kp F     &kp P     &kp B      &kp J     &kp L     &kp U     &kp Y     &kp SEMI  
+    &kp A    &kp R    &kp S     &kp T     &kp G      &kp M     &kp N     &kp E     &kp I     &kp O
+    &kp Z    &kp X    &kp C     &kp D     &kp V      &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH
+                      &kp LGUI  &kp LSHIFT &kp CTRL  &kp ESC &kp SPACE   &kp ALT 
+            >;
+
+
+//      numeric_layer {
+//          bindings = <
+//  &kp Q    &kp W    &kp F     &kp P     &kp B      &kp Y     &kp U     &kp I     &kp O     &kp P   
+//  &kp A    &kp S    &kp D     &kp F     &kp G      &kp H     &kp J     &kp K     &kp L     &kp SEMI
+//  &kp Z    &kp X    &kp C     &kp V     &kp B      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
+//                    &kp LGUI  &kp DEL   &kp RET    &kp SPACE &kp ESC   &kp RET
+//          >;
+//      };
+//
+//      symbol_layer {
+//          bindings = <
+//  &kp Q    &kp W    &kp F     &kp P     &kp B      &kp Y     &kp U     &kp I     &kp O     &kp P   
+//  &kp A    &kp S    &kp D     &kp F     &kp G      &kp H     &kp J     &kp K     &kp L     &kp SEMI
+//  &kp Z    &kp X    &kp C     &kp V     &kp B      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
+//                    &kp LGUI  &kp DEL   &kp RET    &kp SPACE &kp ESC   &kp RET
+//          >;
+//      };
+//
+//      nav_layer {
+//          bindings = <
+//  &kp Q    &kp W    &kp F     &kp P     &kp B      &kp Y     &kp U     &kp I     &kp O     &kp P   
+//  &kp A    &kp S    &kp D     &kp F     &kp G      &kp H     &kp J     &kp K     &kp L     &kp SEMI
+//  &kp Z    &kp X    &kp C     &kp V     &kp B      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
+//                    &kp LGUI  &kp DEL   &kp RET    &kp SPACE &kp ESC   &kp RET
+//          >;
+//      };
+
+    };
+};
+

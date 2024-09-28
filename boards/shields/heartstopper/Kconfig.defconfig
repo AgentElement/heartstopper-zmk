@@ -1,0 +1,17 @@
+if SHIELD_HEARTSTOPPER_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Heartstopper"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_HEARTSTOPPER_LEFT || SHIELD_HEARTSTOPPER_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
+

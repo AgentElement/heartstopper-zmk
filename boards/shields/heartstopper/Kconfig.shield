@@ -1,0 +1,5 @@
+config SHIELD_HEARTSTOPPER_LEFT
+    def_bool $(shields_list_contains,heartstopper_left)
+
+config SHIELD_HEARTSTOPPER_RIGHT
+    def_bool $(shields_list_contains,heartstopper_right)
