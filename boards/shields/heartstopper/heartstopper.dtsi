@@ -2,8 +2,8 @@
 
 / {
     chosen {
-        zmk, kscan = &kscan0;
-        zmk, matrix-transform = &default_transfrorm;
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transfrorm;
     };
 
     default_transfrorm: keymap_transform_0 {
