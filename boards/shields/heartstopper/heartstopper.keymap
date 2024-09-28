@@ -12,6 +12,7 @@
     &kp Z    &kp X    &kp C     &kp D     &kp V      &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH
                       &kp LGUI  &kp LSHIFT &kp CTRL  &kp ESC &kp SPACE   &kp ALT 
             >;
+        };
 
 
 //      numeric_layer {
