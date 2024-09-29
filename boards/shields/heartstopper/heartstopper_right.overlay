@@ -5,3 +5,15 @@
     col-offset = <5>;
 };
 
+&pinctrl {
+    pio0_uart0_default: pio0_uart0_default {
+        rx_pins {
+            pinmux = <PIO0_P13>;
+            input-enable;
+            bias-pull-up;
+        };
+        tx_pins {
+            pinmux = <PIO0_P12>;
+        };
+    };
+};
