@@ -1,17 +1,151 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define CMKDH 0
+#define QWERTY 1
+#define GAME 2
+#define NUM 3
+#define SYM 4
+#define NAV 5
+#define CTRL 6
+
 / {
+
+    // KEY POSITIONS
+
+    // 00 01 02 03 04    05 06 07 08 09
+    // 10 11 12 13 14    15 16 17 18 19
+    // 20 21 22 23 24    25 26 27 28 29
+    //       30 31 32    33 34 35
+
     keymap {
         compatible = "zmk,keymap";
 
+        // BASE LAYERS
+
         default_layer {
             bindings = <
-                &kp Q    &kp W    &kp F     &kp P     &kp B      &kp J     &kp L     &kp U     &kp Y     &kp SEMI
-                &kp A    &kp R    &kp S     &kp T     &kp G      &kp M     &kp N     &kp E     &kp I     &kp O
-                &kp Z    &kp X    &kp C     &kp D     &kp V      &kp K     &kp H     &kp COMMA &kp DOT   &kp FSLH
-                                  &kp LGUI  &kp LSHIFT &kp LCTRL &kp ESC   &kp SPACE &kp RALT
+                &lt CTRL Q           &kp W              &kp F               &kp P           &kp B           &kp J            &kp L           &kp U           &kp Y           &kp SEMI
+                &mt LMETA A          &mt LALT R         &mt LSHIFT S        &mt LCTRL T     &kp G           &kp M            &mt RCTRL N     &mt RSHIFT E    &mt RALT I      &mt RMETA O
+                &kp Z                &kp X              &kp C               &kp D           &kp V           &kp K            &kp H           &kp COMMA       &kp DOT         &kp FSLH
+                                                        &lt NUM ESC         &mt LSHIFT RET  &mt LALT TAB    &mt RMETA BSPC   &mt RCTRL SPACE &lt SYM DEL
             >;
+        };
+
+
+        qwerty_layer {
+            bindings = <
+                &lt CTRL Q           &kp W              &kp E               &kp R           &kp T           &kp Y            &kp U           &kp I           &kp O           &kp P
+                &mt LMETA A          &mt LALT S         &mt LSHIFT D        &mt LCTRL F     &kp G           &kp H            &mt RCTRL J     &mt RSHIFT K    &mt RALT L      &mt RMETA SEMI
+                &kp Z                &kp X              &kp C               &kp V           &kp D           &kp N            &kp M           &kp COMMA       &kp DOT         &kp FSLH
+                                     &lt NUM ESC  &mt LSHIFT RET      &mt LALT TAB    &mt RMETA BSPC  &mt RCTRL SPACE  &lt SYM DEL
+            >;
+        };
+
+
+        game_layer {
+            bindings = <
+              &mo CTRL             &kp Q    &kp W           &kp E       &kp R      &kp Y     &kp U     &kp I     &kp O     &kp P
+              &kp LSHIFT           &kp A    &kp S           &kp D       &kp F      &kp H     &kp J     &kp K     &kp L     &kp SEMI
+              &kp LCTRL            &kp Z    &kp X           &kp C       &kp V      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
+                    &lt NUM ESC  &kp SPACE  &kp TAB   &kp BSPC  &kp SPACE   &lt SYM DEL
+            >;
+        };
+
+
+        // AUXILLARY LAYERS
+
+        num_layer {
+            bindings = <
+                &mo CTRL          &trans          &kp UP           &trans          &trans          &kp KP_MULTIPLY &kp N7           &kp N8         &kp N9         &kp KP_MINUS
+                &kp LMETA         &mt LALT LEFT   &mt LSHIFT DOWN  &mt LCTRL RIGHT &trans          &kp N0          &mt RCTRL N4     &mt RSHIFT N5  &mt RALT N6    &mt RMETA KP_PLUS
+                &trans            &trans          &trans           &trans          &trans          &kp KP_DIVIDE   &kp N1           &kp N2         &kp N3         &kp KP_DOT 
+                                                  &trans           &mt LSHIFT RET  &mt LALT TAB    &mt RMETA BSPC  &mt RCTRL SPACE  &lt NAV DEL
+            >;
+        };
+
+
+        sym_layer {
+            bindings = <
+                &lt CTRL EXCL          &kp AT              &kp HASH              &kp DOLLAR        &kp PERCENT      &kp LT          &kp LBKT         &kp RBKT           &kp GT          &kp PIPE
+                &mt LMETA STAR         &mt LALT PLUS       &mt LSHIFT MINUS      &mt LCTRL EQUAL   &kp UNDER        &kp DQT         &mt RCTRL LPAR   &mt RSHIFT RPAR    &mt RALT SQT    &mt RMETA BSLH
+                &kp CARET              &kp AMPS            &kp TILDE             &kp GRAVE         &kp QUESTION     &kp COMMA       &kp LBRC         &kp RBRC           &kp DOT         &kp FSLH
+                                                           &lt NAV ESC           &mt LSHIFT RET    &mt LALT TAB     &mt RMETA BSPC  &mt RCTRL SPACE  &trans
+            >;
+        };
+
+
+        nav_layer {
+            bindings = <
+                &mo CTRL            &kp PG_UP         &kp UP            &kp PG_DN       &kp C_MUTE         &kp F12           &kp F7            &kp F8         &kp F9         &kp HOME
+                &mt LMETA C_BRI_INC &mt LALT LEFT     &mt LSHIFT DOWN   &mt LCTRL RIGHT &kp C_VOL_UP       &kp F11           &mt RCTRL F4      &mt RSHIFT F5  &mt RALT F6    &mt RMETA PSCRN 
+                &kp C_BRI_DEC       &kp C_PREV        &kp C_PP          &kp C_NEXT      &kp C_VOL_DN       &kp F10           &kp F1            &kp F2         &kp F3         &kp END
+                                                      &trans            &mt LSHIFT RET  &mt LALT TAB       &mt RMETA BSPC    &mt RCTRL SPACE   &trans
+            >;
+        };
+
+
+        // CONTROL LAYER
+
+        control_layer {
+            bindings = <
+                &trans   &to CMKDH          &to QWERTY          &to GAME         &none              &none       &none       &none       &none       &none
+                &none    &none              &none               &none            &sys_reset         &sys_reset  &none       &none       &none       &none
+                &none    &none              &none               &none            &bootloader        &bootloader &none       &none       &none       &none
+                                            &none               &none            &none              &none       &none       &none
+            >;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <35>;
+            key-positions = <11 12>;
+            bindings = <&kp ESC>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_ret {
+            timeout-ms = <35>;
+            key-positions = <17 18>;
+            bindings = <&kp RET>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_tab {
+            timeout-ms = <35>;
+            key-positions = <1 2>;
+            bindings = <&kp TAB>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_bspc {
+            timeout-ms = <35>;
+            key-positions = <7 8>;
+            bindings = <&kp BSPC>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_del {
+            timeout-ms = <35>;
+            key-positions = <27 28>;
+            bindings = <&kp DEL>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_ins {
+            timeout-ms = <35>;
+            key-positions = <22 23>;
+            bindings = <&kp INS>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
+        };
+
+        combo_cw {
+            timeout-ms = <35>;
+            key-positions = <16 19>;
+            bindings = <&caps_word>;
+            layers = <CMKDH QWERTY NUM SYM NAV>;
         };
     };
 };
